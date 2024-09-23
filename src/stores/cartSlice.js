@@ -17,8 +17,7 @@ const cartSlice = createSlice({
             }else{
             state.items.push({productId,quantity});
             }
-localStorage.setItem('carts', JSON.stringify(state.items));
-
+            localStorage.setItem('carts', JSON.stringify(state.items));
         },
        
         changeQuantity(state, action){
@@ -29,8 +28,9 @@ localStorage.setItem('carts', JSON.stringify(state.items));
             }else{
                 state.items = (state.items).filter(item => item.productId !== productId);
             }
-        localStorage.setItem('carts', JSON.stringify(state.items));   
+            localStorage.setItem('carts', JSON.stringify(state.items));   
         },
+        
         toggleStatusTab(state){
             if(state.statusTab === false){
                 state.statusTab = true;
@@ -42,5 +42,4 @@ localStorage.setItem('carts', JSON.stringify(state.items));
 })
 
 export const { addToCart, removeFromCart, changeQuantity,toggleStatusTab } = cartSlice.actions;
-
 export default cartSlice.reducer;
